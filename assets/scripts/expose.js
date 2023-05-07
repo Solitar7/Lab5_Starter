@@ -10,29 +10,27 @@ function init() {
   let button = document.querySelector("button");
   let C = new JSConfetti();
 
-  horn.addEventListener("input", changeHorn);
-
-  function changeHorn(h){
-    if (h.value == "air-horn"){
+  horn.addEventListener("input", function(){
+    if (this.value == "air-horn"){
       hornImg.src = "assets/images/air-horn.svg";
       hornImg.alt = "air-horn image selected";
       audio.src = "assets/audio/air-horn.mp3";
     }
-    else if (h.value == "car-horn"){
+    else if (this.value == "car-horn"){
       hornImg.src = "assets/images/car-horn.svg";
       hornImg.alt = "car-horn image selected";
       audio.src = "assets/audio/car-horn.mp3";
     }
-    else if (h.value == "party-horn"){
+    else if (this.value == "party-horn"){
       hornImg.src = "assets/images/party-horn.svg";
       hornImg.alt = "air-horn image selected";
       audio.src = "assets/audio/party-horn.mp3";
     }
     button.addEventListener("click", function(){
       audio.play();
-      if (h.value == "party-horn"){
+      if (this.value == "party-horn"){
         C.addConfetti();
       }
     })
-  }
+  });
 }
