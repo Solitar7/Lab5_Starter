@@ -3,7 +3,7 @@
 window.addEventListener('DOMContentLoaded', init);
 
 function init() {
-  const synth = windon.speechSynthesis;
+  const synth = window.speechSynthesis;
   let voices = synth.geetVoices();
 
   for (let i = 0; i < voices.length; i++) {
