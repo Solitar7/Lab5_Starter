@@ -30,9 +30,18 @@ function init() {
     selectedOption = this.getAttribute("data-name");
   });
 
+  let faceImg = document.querySelector("img");
   let button = document.querySelector("button");
   button.addEventListener("click", function(){
     const utterThis = new SpeechSynthesisUtterance(textInfo);
+    utterThis.onstart = function() { 
+      faceImg.src = "assets/images/smiling-open.png";
+      faceImg.alt = "Smiling face speaking";
+    };
+    utterThis.onend = function() { 
+      faceImg.src = "assets/images/smiling.png";
+      faceImg.alt = "Smiling face";
+    };
     for (let i = 0; i < voices.length; i++){
       if (voices[i].name === selectedOption){
         utterThis.voice = voices[i];
