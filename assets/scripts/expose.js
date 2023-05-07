@@ -34,7 +34,33 @@ function init() {
       button.addEventListener("click", function(){
         audio.play();
         C.addConfetti();
+        C.clearCanvas();
       })
+    }
+  });
+
+  let volume = document.getElementById("volume");
+  let volumeImg = images[1];
+  volume.addEventListener("change", function(){
+    if (this.value == 0){
+      volumeImg.src = "assets/icons/volume-level-0.svg";
+      volumeImg.alt = "Volume level 0";
+    }
+    else if (this.value > 0){
+      if (this.value < 33){
+        volumeImg.src = "assets/icons/volume-level-1.svg";
+        volumeImg.alt = "Volume level 1";
+      }
+      else{
+        if (this.value < 67){
+          volumeImg.src = "assets/icons/volume-level-2.svg";
+          volumeImg.alt = "Volume level 2";
+        }
+        else{
+          volumeImg.src = "assets/icons/volume-level-3.svg";
+          volumeImg.alt = "Volume level 3";
+        }
+      }
     }
   });
 }
