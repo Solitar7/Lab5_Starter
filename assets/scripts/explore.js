@@ -4,7 +4,7 @@ window.addEventListener('DOMContentLoaded', init);
 
 function init() {
   const synth = window.speechSynthesis;
-  let voices = synth.geetVoices();
+  let voices = synth.getVoices();
 
   for (let i = 0; i < voices.length; i++) {
     const option = document.createElement("option");
