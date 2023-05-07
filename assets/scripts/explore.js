@@ -4,15 +4,17 @@ window.addEventListener('DOMContentLoaded', init);
 
 function init() {
   const synth = window.speechSynthesis;
-  let voices = synth.getVoices();
 
-  for (let i = 0; i < voices.length; i++) {
-    const option = document.createElement("option");
-    option.textContent = `${voices[i].name} (${voices[i].lang})`;
-    option.setAttribute("data-lang", voices[i].lang);
-    option.setAttribute("data-name", voices[i].name);
-    voiceSelect.appendChild(option);
-  }
+  speechSynthesis.addEventListener("voiceschanged", function(){
+    let voices = synth.getVoices();
+    for (let i = 0; i < voices.length; i++) {
+      const option = document.createElement("option");
+      option.textContent = `${voices[i].name} (${voices[i].lang})`;
+      option.setAttribute("data-lang", voices[i].lang);
+      option.setAttribute("data-name", voices[i].name);
+      voiceSelect.appendChild(option);
+    }
+  });
 
   var text = document.getElementById("text-to-speak");
   var textInfo;
