@@ -11,6 +11,7 @@ function init() {
   let C = new JSConfetti();
 
   horn.addEventListener("input", function(){
+    C.clearCanvas();
     if (this.value == "air-horn"){
       hornImg.src = "assets/images/air-horn.svg";
       hornImg.alt = "air-horn image selected";
@@ -34,7 +35,6 @@ function init() {
       button.addEventListener("click", function(){
         audio.play();
         C.addConfetti();
-        C.clearCanvas();
       })
     }
   });
@@ -42,6 +42,7 @@ function init() {
   let volume = document.getElementById("volume");
   let volumeImg = images[1];
   volume.addEventListener("change", function(){
+    audio.volume = volume.value;
     if (this.value == 0){
       volumeImg.src = "assets/icons/volume-level-0.svg";
       volumeImg.alt = "Volume level 0";
