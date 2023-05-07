@@ -11,7 +11,7 @@ function init() {
   let C = new JSConfetti();
 
   horn.addEventListener("input", function(){
-    button.removeEventListener("input");
+    button.removeEventListener("input",function(){});
     if (this.value == "air-horn"){
       hornImg.src = "assets/images/air-horn.svg";
       hornImg.alt = "air-horn image selected";
