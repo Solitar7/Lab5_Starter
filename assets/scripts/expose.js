@@ -31,10 +31,11 @@ function init() {
       hornImg.src = "assets/images/party-horn.svg";
       hornImg.alt = "air-horn image selected";
       audio.src = "assets/audio/party-horn.mp3";
+      C.addConfetti();
       button.addEventListener("click", function(){
         audio.play();
-        C.addConfetti();
       })
+      C.clearCanvas();
     }
   });
 
